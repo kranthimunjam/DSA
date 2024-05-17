@@ -117,7 +117,7 @@ Let's take following example:
 
 And find the bigger one of these two sub problems.
 
-![img_1.png](img_1.png)
+![img_1.png](resources/img_1.png)
 
 ```java
     public int rob(int[] nums) {

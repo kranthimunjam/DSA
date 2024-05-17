@@ -43,7 +43,7 @@ The longest common subsequence between `X` and `Y` is `“MJAU”`.
 The following table shows the lengths of the longest common subsequences between prefixes of `X` and `Y`. 
 The i<sup>th</sup> row and j<sup>th</sup> column shows the length of the LCS between X_{1..i} and Y_{1..j}.
 
-![img.png](img.png)
+![img.png](resources/img.png)
 
 ```java
 class Solution {

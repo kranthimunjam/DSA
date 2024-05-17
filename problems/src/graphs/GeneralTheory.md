@@ -4,7 +4,7 @@ Only disadvantage of lists is when checking if there is an edge(directed or undi
 
 # Algorithms:
 
-![img.png](img.png)
+![img.png](resources/img.png)
 
 ## BFS:
 ```java
