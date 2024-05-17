@@ -32,8 +32,8 @@ So it is impossible.
 
 ## Solutions
 
-Only catch here is since it is directed graph a node can be reached twice but still doesn’t mean there is a cycle. 
-In below graph, `4` is visited again while processing `3` but that doesn’t mean there’s a cycle. 
+Only catch here is since it is directed graphs a node can be reached twice but still doesn’t mean there is a cycle. 
+In below graphs, `4` is visited again while processing `3` but that doesn’t mean there’s a cycle. 
 For that reason, once a node is processed, we are removing it from hashmap.
 
 ![img_4.png](resources/img_4.png)
@@ -42,36 +42,36 @@ For that reason, once a node is processed, we are removing it from hashmap.
 public boolean canFinish(int numCourses, int[][] prerequisites) {
     if(prerequisites.length<=1) return true;
 
-    ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> graphs = new ArrayList<>();
 
     for(int i=0;i<numCourses;i++){
-        graph.add(new ArrayList<Integer>());
+        graphs.add(new ArrayList<Integer>());
     }
 
-    // construct graph as adjacency list
+    // construct graphs as adjacency list
     for(int[] edge: prerequisites){
-        graph.get(edge[0]).add(edge[1]);
+        graphs.get(edge[0]).add(edge[1]);
     }
 
     for(int i=0;i<numCourses;i++){
-        if(graph.get(i).size()>0){
+        if(graphs.get(i).size()>0){
     // this map keeps track of all the nodes visited starting from node i
     // if current node is already in the map then there's a cycle.
             HashMap<Integer, Boolean> processedCourses = new HashMap<>();
-            boolean val = isPossible(i, graph, processedCourses);
+            boolean val = isPossible(i, graphs, processedCourses);
             if(val==false) return val;
         }
     }
     return true;
 }
 
-private boolean isPossible(int course, ArrayList<ArrayList<Integer>> graph, HashMap<Integer, Boolean> processedCourses){
+private boolean isPossible(int course, ArrayList<ArrayList<Integer>> graphs, HashMap<Integer, Boolean> processedCourses){
     if(processedCourses.containsKey(course)) return false;
     
     processedCourses.put(course, true);
 
-    for(int i : graph.get(course)){
-        boolean val = isPossible(i, graph, processedCourses);
+    for(int i : graphs.get(course)){
+        boolean val = isPossible(i, graphs, processedCourses);
         if(val==false) return val;
     }
     

@@ -59,11 +59,11 @@ void DFSUtil(int v, boolean visited[]){
 
 Topological sorting for `Directed Acyclic Graph (DAG)` is a linear ordering of vertices such that for every directed edge u-v, vertex u comes before v in the ordering.
 
-**Note:** Topological sorting doesn't work if the given graph has cycle(s).
+**Note:** Topological sorting doesn't work if the given graphs has cycle(s).
 
 **Algorithm:**
 - Initialize a stack and a visited array of size n.
-- For each unvisited vertex in the graph, do the following:
+- For each unvisited vertex in the graphs, do the following:
 - Call the DFS function with the vertex as the parameter.
 - In the DFS function, mark the vertex as visited and recursively call the DFS function for all unvisited neighbors of the vertex.
 - Once all the neighbors have been visited, push the vertex onto the stack.
@@ -85,7 +85,7 @@ static void topologicalSort(List<List<Integer> > adj, int V){
 
         // Print contents of stack
         System.out.print(
-            "Topological sorting of the graph: ");
+            "Topological sorting of the graphs: ");
         while (!stack.empty()) {
             System.out.print(stack.pop() + " ");
         }
@@ -109,7 +109,7 @@ static void topologicalSortUtil(int v, List<List<Integer> > adj, boolean[] visit
 ```
 ## Minimal Spanning Tree: 
 
-Connecting the graph with edges with minimum weights as much as possible.
+Connecting the graphs with edges with minimum weights as much as possible.
 
 **Kruskal’s :**
 
@@ -117,7 +117,7 @@ Connecting the graph with edges with minimum weights as much as possible.
 - Sort edges by weight.
 - Keep adding edges one by one starting with smallest weight one. 
 - While adding check if this new edge is forming a cycle using `union-find`.
-- If Not then add edge to graph, remove the vertex from the set.
+- If Not then add edge to graphs, remove the vertex from the set.
 - else move on to the next edge.
 - continue till set is empty(meaning all vertices are added to spanning tree).
 
@@ -186,7 +186,7 @@ public class KruskalsEdgeList {
     }
   }
 
-  // Given a graph represented as an edge list this method finds the Minimum Spanning Tree (MST) cost if there exists
+  // Given a graphs represented as an edge list this method finds the Minimum Spanning Tree (MST) cost if there exists
   // a MST, otherwise it returns null.
   static Long kruskals(Edge[] edges, int n) {
 
@@ -217,8 +217,8 @@ public class KruskalsEdgeList {
 
 - Start with a node, pick the edge with minimum weight.
 - For example, starting at vertex a, after picking minimum edge we have a and b connected by the minimum edge.
-- Now for this to be connected with the rest of the graph, it can be through a or b. So we have to pick minimum edge available at either a or b. Then a and b will be connected with rest of the graph.
-- Let’s assume that new vertex is c. Then for next step, we have to pick minimum of edges at a, b and c. so that this sub graph containing (a,b,c) will be connected with rest of the graph.
+- Now for this to be connected with the rest of the graphs, it can be through a or b. So we have to pick minimum edge available at either a or b. Then a and b will be connected with rest of the graphs.
+- Let’s assume that new vertex is c. Then for next step, we have to pick minimum of edges at a, b and c. so that this sub graphs containing (a,b,c) will be connected with rest of the graphs.
 - Repeat until all vertices are connected.
 
 ```java
@@ -275,7 +275,7 @@ It only works if there`no negative cycles`.
 
 **Bellmann-ford:** 
 
-Works even if graph has negative cycles.
+Works even if graphs has negative cycles.
 
 # All pairs shortest path algorithms:
 **Floyd-warshall:** 

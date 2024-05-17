@@ -1,8 +1,8 @@
 # [Clone Graph](https://leetcode.com/problems/clone-graph/description/)
 
-Given a reference of a node in a **connected** undirected graph, return a **deep copy (clone)** of the graph.
+Given a reference of a node in a **connected** undirected graphs, return a **deep copy (clone)** of the graphs.
 
-Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
+Each node in the graphs contains a value (int) and a list (List[Node]) of its neighbors.
 
 ```
 class Node {
@@ -15,13 +15,13 @@ class Node {
  ### Test case format:
 
 For simplicity, each node's value is the same as the node's index (1-indexed). 
-For example, the first node with `val == 1`, the second node with `val == 2`, and so on. The graph is represented in the test case using an adjacency list.
+For example, the first node with `val == 1`, the second node with `val == 2`, and so on. The graphs is represented in the test case using an adjacency list.
 
-**An adjacency list** is a collection of unordered **lists** used to represent a finite graph. 
-Each list describes the set of neighbors of a node in the graph.
+**An adjacency list** is a collection of unordered **lists** used to represent a finite graphs. 
+Each list describes the set of neighbors of a node in the graphs.
 
 The given node will always be the first node with `val = 1`. 
-You must return the **copy of the given node** as a reference to the cloned graph.
+You must return the **copy of the given node** as a reference to the cloned graphs.
 
  **Example 1:**
  
@@ -31,7 +31,7 @@ You must return the **copy of the given node** as a reference to the cloned grap
 
 **Output:** [[2,4],[1,3],[2,4],[1,3]]
 
-**Explanation:** There are 4 nodes in the graph.
+**Explanation:** There are 4 nodes in the graphs.
 
 * 1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
 * 2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
@@ -46,7 +46,7 @@ You must return the **copy of the given node** as a reference to the cloned grap
 
 **Output:** [[]]
 
-**Explanation:** Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.
+**Explanation:** Note that the input contains one empty list. The graphs consists of only one node with val = 1 and it does not have any neighbors.
 
 **Example 3:**
 
@@ -54,15 +54,15 @@ You must return the **copy of the given node** as a reference to the cloned grap
 
 **Output:** []
 
-**Explanation:** This an empty graph, it does not have any nodes.
+**Explanation:** This an empty graphs, it does not have any nodes.
 
 
 ### Constraints:
 
-* The number of nodes in the graph is in the range `[0, 100]`.
+* The number of nodes in the graphs is in the range `[0, 100]`.
 * `1 <= Node.val <= 100`
 * `Node.val` is unique for each node.
-* There are no repeated edges and no self-loops in the graph.
+* There are no repeated edges and no self-loops in the graphs.
 * The Graph is connected and all nodes can be visited starting from the given node.
 
 ## Solutions

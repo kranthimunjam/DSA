@@ -26,11 +26,11 @@ So return "zx"
 
 # Solution
 
-* Create a directed **graph g** with number of vertices equal to the number of unique characters in alien language, where each character represents a node and edges between nodes indicate the relative order of characters.
+* Create a directed **graphs g** with number of vertices equal to the number of unique characters in alien language, where each character represents a node and edges between nodes indicate the relative order of characters.
 * Do following for every pair of adjacent words in given sorted array.
 * Let the current pair of words be `word1` and `word2`. One by one compare characters of both words and find the first mismatching characters.
 * Create an edge in g from mismatching character of word1 to that of word2.
-* If the graph created is **DAG (Directed Acyclic Grapgh)** then print topological sorting of the above created graph else if the graph contains a cycle then input data is inconsistent and valid order of characters does not exist.
+* If the graphs created is **DAG (Directed Acyclic Grapgh)** then print topological sorting of the above created graphs else if the graphs contains a cycle then input data is inconsistent and valid order of characters does not exist.
 
 ```java
 class Solution {
