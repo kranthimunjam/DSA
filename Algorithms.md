@@ -113,7 +113,6 @@ class UnionFind {
     }
 ```
 
-
 ### Kruskal’s Algorithm:
 1. Keep vertices in a set.
 2. Sort edges by weight(add them to min heap). 
