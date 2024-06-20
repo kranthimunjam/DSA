@@ -22,7 +22,7 @@ void clear();
 default Stream<E> stream();
 default Stream<E> parallelStream();
 ```
-Iterator and Comparator:
+### Iterator and Comparator:
 ```java
 Iterator iterator = pq.iterator();
 while (iterator.hasNext()) {
@@ -36,7 +36,7 @@ class Sortbyname implements Comparator<Student> {
     }
 } 
 // same can be written leveraging functional interfaces and lambdas as
-(a,b -> a.name.compareTo(b.name))
+(a,b) -> a.name.compareTo(b.name)
 // we can also use compareTo method inside comperator.
 Integer x = new Integer(30);
 Integer y = new Integer(30);
@@ -45,14 +45,14 @@ System.out.println(x.compareTo(y));
 
 
 ```
-Stacks:
+### Stacks:
 ```java
 Stack<Integer> stack = new Stack<>();
 stack.push(2);
 stack.peek(); // returns top element. NULL if stack is empty.
 stack.pop(); // removes and returns top element.NoSuchElement if stack is empty.
 ```
-Queues:
+### Queues:
 ```java
 Queue<Integer> q = new LinkedList<>();
 queue.add(1);
@@ -65,7 +65,17 @@ PriorityQueue<Integer> pQueue = new PriorityQueue<>(Collections.reverseOrder());
 // queue with string reverse order
 PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->b.name.compareTo(a.name));
 ```
-Set:
+### Deque:
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+deque.offerFirst(1);// better than addFirst cause it will throw exception if full
+deque.offerLast(2);
+deque.peeKFirst();
+deque.peekLast();
+int first = deque.pollFirst();
+int last = deque.pollLast();
+```
+### Set:
 ```java
 Set<Integer> a = new HashSet<Integer>(); 
 Set<Integer> b = new HashSet<Integer>();
@@ -79,13 +89,15 @@ intersection.retainAll(b);
 Set<Integer> difference = new HashSet<Integer>(a); 
 difference.removeAll(b);
 ```
-TreeSet:
+### TreeSet:
 ```java
 Set<Integer> treeSet = new HashSet<Integer>(); 
-treeSet.ceiling(10)// returns a values just above 10 or NULL;
-treeSet.floor(10)// returns a values just below 10 or NULL;
+treeSet.ceiling(10); // returns a values just above 10 or NULL;
+treeSet.floor(10); // returns a values just below 10 or NULL
+treeset.first(); // returns first element
+treeSet.last(); // returns last element
 ```
-Maps:
+### Maps:
 Use streams wherever you can.
 ```java
 // get stream and use it for iterating over the entries
@@ -125,12 +137,12 @@ map.remove(key);
 //To merge maps use merge method.
 map.merge("B", "NEW", (v1, v2) -> v1 + v2);
 
-Iterate Map(using for each):
+// Iterate Map(using for each):
 
 Map<String,String> map = new HashMap<String,String>();
 map.forEach((k, v) -> System.out.println("Key: " + k + " Value: " + v));
 
-Iterate Map(using Iterator): Used when deletion of entries required
+// Iterate Map(using Iterator): Used when deletion of entries required
 
 Iterator<Map.Entry<String, Integer>> itr = gfg.entrySet().iterator();
 while(itr.hasNext()){
@@ -151,9 +163,9 @@ for (String url : gfg.values())
 // or using streams
 gfg.values().stream().forEach(value -> System.out.println("value: " + url););
 
-Iterating over keys and searching for values (inefficient), use forEach instead:
-Here first we loop over keys(using Map.keySet() method) and then search for value(using Map.get(key) method) for each key. 
-This method is not used in practice as it is pretty slow and inefficient as getting values by a key might be time-consuming.
+//Here first we loop over keys(using Map.keySet() method) and then search for value(using Map.get(key) method) for each key. 
+//This method is not used in practice as it is pretty slow and inefficient as getting values by a key might be time-consuming.
+//Iterating over keys and searching for values (inefficient), use forEach instead:
         
 Map<String,String> gfg = new HashMap<String,String>();
 // looping over keys
@@ -164,10 +176,9 @@ for (String name : gfg.keySet()){
 }
 ```
 
-Arrays 1D:
+### Arrays:
 use primitve arrays when you can as alternatives to pair etc. 
-These are faster and memory efficient.
-Primitive Types:
+These are faster and memory efficient.\
 ```java
 // Declaration
 int[] arr1, arr2;
@@ -182,13 +193,13 @@ public static int[] m1() {
     return new int[]{1,2,3};
 }
 ```
-Cloning of arrays: A clone of 1D arrays is deep-copy.
+**Cloning of arrays:** A clone of 1D arrays is `deep-copy`.
 ```java
 int[] cloneArray = intArray.clone();
 //prints false as deep copy is created for cloneArray. references are different 
 System.out.println(intArray == cloneArray);
 ```
-A clone of a multi-dimensional array (like Object[][]) is a "shallow copy" however, which is to say that it creates only a single new array with each element array a reference to an original element array, but subarrays are shared.
+A clone of a multi-dimensional array (like Object[][]) is a `shallow copy` however, which is to say that it creates only a single new array with each element array a reference to an original element array, but subarrays are shared.
 ```java
 int[][] intArray = {{1,2,3},{4,5}};
 int[][] cloneArray = intArray.clone();
@@ -199,7 +210,7 @@ System.out.println(intArray == cloneArray); // will print false
 System.out.println(intArray[0] == cloneArray[0]); 
 System.out.println(intArray[1] == cloneArray[1]);
 ```
-The Arrays Class:
+**The Arrays Class:**
 The java.util.Arrays class contains various static methods for sorting and searching arrays, comparing arrays, and filling array elements.
 These methods are overloaded for all primitive types.
 
@@ -225,23 +236,23 @@ void sort(Object[] a)
 // Returns a sequential Stream with the specified array as its source
 static <T> Stream<T> stream(T[] array)
 ```
-Bitwise Manipulation:
-Operators: or( | ), and (&), complement (~), xor(^),
-signed right shift operator (>>), unsigned right shift operator (>>>), 
+### Bit Manipulation:
+**Operators:** or( | ), and (&), complement (~), xor(^),
+signed right shift operator (>>), unsigned right shift operator (>>>),
 left shift operator(<<), unsigned left shift operator (<<<)
-- clear n LSBs: ~0 is sequence of 1's, so ~0 << n is 1's followed by n 0's. ANDing this with another value will clear the last n bits.
+- clear n LSBs: ~0 is sequence of 1's, so ~0 << n is 1's followed by n 0's. `AND`ing this with another value will clear the last n bits.
 ```java
 // bitwise not of 5: ~5
 // ~00000000 00000000 00000000 00000101=11111111 11111111 11111111 11111010
 // will give 2's complement (32 bit) of 5 = -6
 ```
-- check if i'th bit is set: num & (1<< i)!=0 
-- set i'th bit: num|(1<<i)
-- clear i'th bit: num& ~(1<<i) 
-- clear all bits from MSB through i(inclusive): mask = (1<<i)-1.
+- **check if i'th bit is set:** num & (1<< i)!=0 
+- **set i'th bit:** `num | (1<<i)`
+- **clear i'th bit:** `num & ~(1<<i) `
+- **clear all bits from MSB through i(inclusive):** mask = `(1<<i)-1`.\
   Ex: Let i=3, (1 << 3)-1 => 0111
 
-ascii value of character:
+### ascii value of character:
 ```java
 String name = "admin";
 char character = name.charAt(0); // This gives the character 'a'
@@ -270,7 +281,7 @@ char[] charArray = str.toCharArray();
 // char at index 'i' in the String
 char ch = str.charAt(i);
 ```
-String creation using StringBuilder:
+**String creation using StringBuilder:**
 ```java
 StringBuilder sb = new StringBuilder();
 sb.append(str);
@@ -290,8 +301,8 @@ sb.setLength(0);
 // this also clears stringBuilder, and faster than setLength
 sb.delete(0, state.sb.length());
 ```
-String creation using StringBuffer:
-**String builder is not synchronised hence not thread safe** so in a concurrent environment use string buffer instead.
+**String creation using StringBuffer:**
+`String builder is not synchronised hence not thread safe` so in a concurrent environment use string buffer instead.
 String buffer extends Object class so it inherits some of the methods from the Object class which such as clone(), equals(), finalize(), getClass(), hashCode(), notifies(), notifyAll().
 
 ```java
@@ -318,7 +329,7 @@ sb.reverse(); //
 //For instance, if your current capacity is 16, it will be (16*2)+2=34.
 sb.capacity();
 ```
-Useful Methods in String class:
+**Useful Methods in String class:**
 ```java
 str.length();
 str.isEmpty();
@@ -327,7 +338,7 @@ str.contains(charSequence);
 str.equals(str2);
 str.concat(str2);
 ```
-Split string:
+**Split string:**
 ```java
 Public String [ ] split ( String regex, int limit )
 
@@ -347,8 +358,8 @@ be of any size, and trailing empty strings will
 be discarded. 
 */
 ```
-Sorting, Searching, Min, Max
-Sorting an array:
+### Sorting, Searching, Min,Max
+**Sorting an array:**
 To sort primitive array in desc order, we need to sort asc then reverse it in-place. No library methods can help!!
 ```java
 method prototype: sort(T[] a, Comparator<? super T> c);
@@ -363,7 +374,7 @@ Collections.sort(arrList, Collections.reverseOrder()); // descending
 Comparator.naturalOrder();
 Comparator.reverseOrder();
 ```
-Min/Max in Array/List:
+**Min/Max in Array/List:**
 ```java
 int[] dp = new int[]{2,1,7,5,3};
 // get max value
@@ -378,7 +389,7 @@ Other way would be to convert primitive array to list and use Collections.
 Collections.min(Arrays.asList(arr));
 Collections.max(Arrays.asList(arr));
 ```
-Searching in array/list:
+**Searching in array/list:**
 ```java
 Use binary search:
 1. Arrays.binarySearch(intArr,intKey);
@@ -386,4 +397,5 @@ Use binary search:
 //If key is not present, the it returns "(-(insertion point) - 1)" 
 // (returns a negative value).
 ```
-Another interesting blog: https://cbarkinozer.medium.com/data-structures-and-algorithms-a-java-cheatsheet-de7250b90c45
+References
+[1] blog: https://cbarkinozer.medium.com/data-structures-and-algorithms-a-java-cheatsheet-de7250b90c45
